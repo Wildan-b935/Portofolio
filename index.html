@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Wildan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#020b17;
+      color:white;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    .container{
+      width:90%;
+      margin:auto;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:25px 0;
+      position:sticky;
+      top:0;
+      background:#020b17;
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:700;
+    }
+
+    .logo span{
+      color:#00e0c6;
+    }
+
+    nav a{
+      margin-left:25px;
+      font-size:15px;
+      transition:.3s;
+    }
+
+    nav a:hover{
+      color:#00e0c6;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+      padding:50px 0;
+    }
+
+    .hero-text h3{
+      color:#00e0c6;
+      font-size:28px;
+      margin-bottom:10px;
+    }
+
+    .hero-text h1{
+      font-size:60px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero-text p{
+      color:#bdbdbd;
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    .btn-group{
+      display:flex;
+      gap:15px;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      padding:14px 28px;
+      border-radius:10px;
+      border:2px solid #00e0c6;
+      transition:.3s;
+      font-weight:500;
+    }
+
+    .btn-primary{
+      background:#00e0c6;
+      color:#02131f;
+    }
+
+    .btn-primary:hover{
+      background:transparent;
+      color:#00e0c6;
+    }
+
+    .btn-outline:hover{
+      background:#00e0c6;
+      color:#02131f;
+    }
+
+    .socials{
+      display:flex;
+      gap:15px;
+    }
+
+    .socials a{
+      width:45px;
+      height:45px;
+      border:1px solid #00e0c6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:10px;
+      transition:.3s;
+    }
+
+    .socials a:hover{
+      background:#00e0c6;
+      color:#02131f;
+    }
+
+    .hero-img{
+      text-align:center;
+    }
+
+    .hero-img img{
+      width:100%;
+      max-width:400px;
+      border-radius:25px;
+      border:2px solid #0b2235;
+      box-shadow:0 0 30px rgba(0,224,198,.2);
+    }
+
+    section{
+      padding:80px 0;
+    }
+
+    .section-title{
+      font-size:35px;
+      margin-bottom:40px;
+      color:#00e0c6;
+      text-align:center;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+    }
+
+    .card{
+      background:#071321;
+      border:1px solid #10273b;
+      padding:30px;
+      border-radius:20px;
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:#00e0c6;
+    }
+
+    .card h2{
+      margin-bottom:20px;
+      color:#00e0c6;
+    }
+
+    .card p{
+      color:#cfcfcf;
+      line-height:1.8;
+    }
+
+    .skills .skill{
+      margin-bottom:25px;
+    }
+
+    .skills .skill-info{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:10px;
+    }
+
+    .progress{
+      width:100%;
+      height:10px;
+      background:#10273b;
+      border-radius:20px;
+      overflow:hidden;
+    }
+
+    .progress span{
+      display:block;
+      height:100%;
+      background:#00e0c6;
+      border-radius:20px;
+    }
+
+    .education-experience{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      margin-top:40px;
+    }
+
+    .timeline-item{
+      margin-bottom:25px;
+      padding-left:20px;
+      border-left:3px solid #00e0c6;
+    }
+
+    .timeline-item h4{
+      color:#00e0c6;
+      margin-bottom:5px;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+
+    .project-card{
+      background:#071321;
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid #10273b;
+      transition:.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-5px);
+      border-color:#00e0c6;
+    }
+
+    .project-card img{
+      width:100%;
+      height:170px;
+      object-fit:cover;
+    }
+
+    .project-content{
+      padding:20px;
+    }
+
+    .project-content h3{
+      margin-bottom:10px;
+    }
+
+    .project-content a{
+      color:#00e0c6;
+    }
+
+    .contact{
+      display:grid;
+      grid-template-columns:1fr 2fr;
+      gap:30px;
+    }
+
+    .contact-info{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .contact-box{
+      background:#071321;
+      padding:20px;
+      border-radius:15px;
+      border:1px solid #10273b;
+    }
+
+    form{
+      background:#071321;
+      padding:30px;
+      border-radius:20px;
+      border:1px solid #10273b;
+    }
+
+    .input-group{
+      margin-bottom:20px;
+    }
+
+    input, textarea{
+      width:100%;
+      padding:15px;
+      background:#02131f;
+      border:none;
+      outline:none;
+      border-radius:10px;
+      color:white;
+    }
+
+    textarea{
+      resize:none;
+      height:150px;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px 0;
+      border-top:1px solid #10273b;
+      margin-top:50px;
+      color:#bdbdbd;
+    }
+.robot-container{
+  position:absolute;
+  right:60px;
+  top:180px;
+  width:220px;
+  cursor:grab;
+  user-select:none;
+  animation:float 3s ease-in-out infinite;
+}
+
+.robot-container img{
+  width:100%;
+  filter:drop-shadow(0 0 25px #00e0c6);
+}
+
+.glow{
+  position:absolute;
+  width:250px;
+  height:250px;
+  background:#00e0c6;
+  filter:blur(100px);
+  opacity:.2;
+  border-radius:50%;
+  z-index:-1;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-15px);
+  }
+  100%{
+    transform:translateY(0);
+  }
+}
+    @media(max-width:900px){
+
+      .hero,
+      .about,
+      .education-experience,
+      .contact{
+        grid-template-columns:1fr;
+      }
+
+      .hero-text h1{
+        font-size:45px;
+      }
+
+      nav{
+        display:none;
+      }
+.social-media{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    min-width:320px;
+}
+
+.social-media a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+    color:white;
+    background:#0f172a;
+    padding:14px 20px;
+    border-radius:14px;
+    width:320px;
+    transition:0.3s;
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+.social-media a:hover{
+    background:#06b6d4;
+    transform:translateX(5px);
+}
+
+.social-media i{
+    font-size:28px;
+}
+
+.social-media span{
+    font-size:17px;
+    font-weight:500;
+}
+.typing-text{
+    font-size:clamp(32px,5vw,60px);
+    font-weight:700;
+    color:white;
+    display:inline-block;
+    overflow:hidden;
+    white-space:nowrap;
+    border-right:4px solid #00ffff;
+    animation:
+    typing 4s steps(50) infinite alternate,
+    blink .10s infinite;
+}
+
+.typing-text span{
+    color:#00ffff;
+}
+
+@keyframes typing{
+    from{
+        width:0;
+    }
+    to{
+        width:29ch;
+    }
+}
+
+@keyframes blink{
+    50%{
+        border-color:transparent;
+    }
+@media (max-width:768px){
+
+    .typing-text{
+        white-space:normal;
+        border-right:none;
+        animation:none;
+        width:100%;
+    }
+
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <div class="logo">
+        <h1 class="typing-text">
+   Muhamad wildan <span>taufiqur rohman.</span>
+</h1>
+      </div>
+
+      <nav>
+        <a href="#">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-text">
+        <h3>Hello, I'm</h3>
+        <h1 class="typing-text">
+   Muhamad wildan <span>taufiqur rohman.</span>
+</h1>
+        <p>
+          Student | Learner | Problem Solver
+        </p>
+
+        <p>
+          I am a vocational student who is enthusiastic about learning new technology and always interested in challenges to improve my skills.
+        </p>
+
+        <div class="btn-group">
+          <a href="#projects" class="btn btn-primary">
+            View My Projects
+          </a>
+
+<a href="Introduction.html" class="btn btn-outline">
+  My Experience web
+</a>
+        </div>
+
+        <div class="socials">
+          <a href="#">IG</a>
+          <a href="#">GH</a>
+          <a href="#">IN</a>
+          <a href="#">GM</a>
+        </div>
+      </div>
+
+      <div class="hero-img">
+
+  <!-- FOTO -->
+  <img src="wi.png" alt="profile">
+
+  <!-- ROBOT -->
+  <div class="robot-container" id="robot">
+
+    <div class="glow"></div>
+
+    <img src="https://pngimg.com/uploads/robot/robot_PNG96.png" alt="robot">
+
+  </div>
+
+</div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+
+      <h1 class="section-title">About Me</h1>
+
+      <div class="about">
+        <div class="card">
+          <h2>About</h2>
+
+          <p>
+            halo,nama saya Wildan pelajar di smkn tengaran jurusan rekayasa perangka lunak dan gim (RPL) saya lahir pada 2009 tepatnya 28-03-2009 saya sekarang berusia 17 tahun dan sedang dalam proses pengwmbangan skill dengan membuat website kolaborasi ini pengalaman pertama saya membuat website secara individu.sayajuga merasa senang karena mendapatkan pengalaman membuat dan mempresentasikan hasil tugas saya yang saya kerjakan dengan susah payah.
+          </p>
+        </div>
+
+        <div class="card skills" id="skills">
+
+          <h2>Skills</h2>
+
+          <div class="skill">
+            <div class="skill-info">
+              <span>HTML</span>
+              <span>60%</span>
+            </div>
+
+            <div class="progress">
+              <span style="width:60%"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-info">
+              <span>CSS</span>
+              <span>40%</span>
+            </div>
+
+            <div class="progress">
+              <span style="width:40%"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-info">
+              <span>JavaScript</span>
+              <span>20%</span>
+            </div>
+
+            <div class="progress">
+              <span style="width:20%"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-info">
+              <span>Figma</span>
+              <span>20%</span>
+            </div>
+
+            <div class="progress">
+              <span style="width:20%"></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="education-experience" id="education">
+
+        <div class="card">
+
+          <h2>Education</h2>
+
+          <div class="timeline-item">
+            <h4>2025-sekarang</h4>
+            <p>SMK N Tengaran</p>
+            <p>pelajar di smk n tengaran jurusan rekayasa perangkat lunak dan gim,membuat websits dengan skill,keterampilan,pengalam dan usaha sendiri untuk menambah wawasan dan keterampila/pengalam membuat website dan mempresentasikannya</p>
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h2>Experience</h2>
+
+          <div class="timeline-item">
+            <h4>2026</h4>
+            <p>membuat website kolaborasi untuk mengasah skill dan keterampilan skill saya dalam membuat website dan desain awal</p>
+          </div>
+
+          <div class="timeline-item">
+            <h4>2025</h4>
+            <p>pengenalan UI/UX awal memasuki jenjang pengcodingan sebagai siswa smkn tengaran angkatan 2025-2028</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PROJECT -->
+    <section id="projects">
+
+      <h1 class="section-title">Featured Projects</h1>
+
+      <div class="projects">
+
+        <div class="project-card">
+          <img src="smk.jpg" alt="">
+          <div class="project-content">
+            <h3>Digital School</h3>
+            <a href="https://wildan26-23.github.io/Web-sekolah/">Read More</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="gunung.jpg" alt="">
+          <div class="project-content">
+            <h3>Environment</h3>
+            <a href="https://wildan-b935.github.io/Environment/">Read More</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="">
+          <div class="project-content">
+            <h3>Web Sport</h3>
+            <a href="https://wildan26-23.github.io/Landingpage.-/">Read More</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="furniture.jpg" alt="">
+          <div class="project-content">
+            <h3>Furniture</h3>
+            <a href="https://wildan-b935.github.io/Tugas5/">Read More</a>
+          </div>
+        </div>
+            <div class="project-card">
+          <img src="mug_1.jpg" alt="">
+          <div class="project-content">
+            <h3>Ecoprint</h3>
+            <a href="../code kolaborasi ddp.zip">Read More</a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+      <h1 class="section-title">Contact Me</h1>
+
+      <div class="contact">
+
+        <div class="contact-info">
+
+<div class="socials">
+
+  <div class="social-media">
+
+  <a href="https://instagram.com/_wil_58" target="_blank">
+    <i class="fab fa-instagram"></i>
+    <span>@Wildan</span>
+  </a>
+
+  <a href="https://Wilzz_011/@username" target="_blank">
+    <i class="fab fa-tiktok"></i>
+    <span>@Wildan</span>
+  </a>
+
+  <a href="https://github.com/Mwildan" target="_blank">
+    <i class="fab fa-github"></i>
+    <span>@Wildan</span>
+  </a>
+
+  <a href="wildan812@gmail.com">
+    <i class="fas fa-envelope"></i>
+    <span>@Wildan</span>
+  </a>
+
+</div>
+
+</div>
+
+        </div>
+
+        <form>
+
+          <div class="input-group">
+            <input type="text" placeholder="Your Name">
+          </div>
+
+          <div class="input-group">
+            <input type="email" placeholder="Your Email">
+          </div>
+
+          <div class="input-group">
+            <input type="text" placeholder="Subject">
+          </div>
+
+          <div class="input-group">
+            <textarea placeholder="Your Message"></textarea>
+          </div>
+
+          <button class="btn btn-primary">
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+    <footer>
+      © 2026 Portfolio | Muhamad Wildan Taufiqur Rohman
+    </footer>
+
+  </div>
+<script>
+
+const robot = document.getElementById("robot");
+
+let isDragging = false;
+let offsetX, offsetY;
+
+robot.addEventListener("mousedown", (e)=>{
+
+  isDragging = true;
+
+  offsetX = e.clientX - robot.offsetLeft;
+  offsetY = e.clientY - robot.offsetTop;
+
+});
+
+document.addEventListener("mousemove", (e)=>{
+
+  if(!isDragging) return;
+
+  robot.style.left =
+    (e.clientX - offsetX) + "px";
+
+  robot.style.top =
+    (e.clientY - offsetY) + "px";
+
+});
+
+document.addEventListener("mouseup", ()=>{
+
+  isDragging = false;
+
+});
+
+// HP TOUCH
+robot.addEventListener("touchstart", (e)=>{
+
+  isDragging = true;
+
+  offsetX =
+    e.touches[0].clientX - robot.offsetLeft;
+
+  offsetY =
+    e.touches[0].clientY - robot.offsetTop;
+
+});
+
+document.addEventListener("touchmove", (e)=>{
+
+  if(!isDragging) return;
+
+  robot.style.left =
+    (e.touches[0].clientX - offsetX) + "px";
+
+  robot.style.top =
+    (e.touches[0].clientY - offsetY) + "px";
+
+});
+
+document.addEventListener("touchend", ()=>{
+
+  isDragging = false;
+
+});
+
+</script>
+</body>
+</html>
